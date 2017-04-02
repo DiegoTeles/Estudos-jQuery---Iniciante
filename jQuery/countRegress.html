@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+<style type="text/css">
+    #tempo{
+font: bold 150px Arial;
+padding: 50px;
+color: red;
+border: thin dashed #f1f1f1;
+width: 400px;
+height: 200px;
+text-align: center;
+line-height: 200px; 
+
+    }
+
+
+</style>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" > </script>
+<script type="text/javascript">
+
+    var count = new Number();
+    var count = 10;
+
+    function start(){
+        if((count - 1) >= 0 ){
+            count = count -1;
+            if(count == 0){
+                count="Fim!";
+            }else if(count < 10){
+                count = "0" + count;
+            }
+            tempo.innerText = count;
+            setTimeout('start();',1000);
+        }
+    }
+</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body onload="start();">
+    <div id="tempo"></div>
+    </body>
+</html>

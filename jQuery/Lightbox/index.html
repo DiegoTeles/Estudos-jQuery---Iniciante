@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lightbox com jQuery</title>
+
+        <style type="text/css">
+        .galeria img{
+            width: 10%;
+            padding: 5px;
+        }
+
+        .galeria img{
+            cursor: pointer;
+        }
+
+        .bg{
+            position: absolute;
+            background-color: #333;
+            opacity: 0;
+            top: 0px;
+            left: 0px;
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .lb{
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            display: none;
+            border: 10px solid #fff;
+            background-color: #fff;
+        }
+
+        .lb img{
+            opacity: 0;
+            width: 450px;
+            height: 450px;
+        }
+
+        .close{
+            color: #fff;
+            background-color: #000;
+            width: 20px;
+            height: 15px;
+            text-align: center;
+            position: absolute;
+            bottom: -20px;
+            right: -5px;
+        }
+
+        .close:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            background-color: #333;
+        }
+
+        
+        </style>
+
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" > </script>
+<script type="text/javascript">
+ $(document).ready(function(){
+
+    $('.galeria img').click(function(){
+        $('.bg').animate({'opacity': '0.60'}, 500, 'linear');
+        $('.bg, .lb').css('display', 'block');
+
+        var big = $(this).attr('src');
+
+        $('.lb img').attr('src', big);
+        $('.lb img').animate({'opacity': '1.00'}, 1500, 'linear');
+        
+    });
+
+    $('.close').click(function(){
+        $('.bg, .lb').css('display', 'none');
+        $('.lb img').css('opacity', '0');
+    });
+ });
+ </script>
+        <meta charset="UTF-8">
+        
+        </head>
+    <body>
+
+        <div class="galeria">
+    <img src="foto1.jpg" alt="">
+    <img src="foto2.jpg" alt="">
+    <img src="foto3.jpg" alt="">    
+        </div>
+
+        <div class="bg"></div>
+        <div class="lb">
+            <img src="" alt="">
+            <div class="close"> X </div>
+        </div>
+    </body>
+</html>

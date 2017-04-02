@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="n">
+
+<head>
+    <title>Estudos - Relogio com jQuery</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" > </script>
+<script type="text/javascript">
+
+function relogio(){
+
+    var tempo = new Date();
+
+    var s = tempo.getSeconds() * 6 ;
+    var m = tempo.getMinutes() * 6  + s / 60 ;
+    var h = tempo.getHours()   * 30 + m / 12 ;
+
+    var rots = "rotate("+ s + "deg)";
+    var rotm = "rotate("+ m + "deg)";
+    var roth = "rotate("+ h + "deg)";
+
+    $("#segundo").css({"transform": rots});
+    $("#minuto").css({"transform": rotm});
+    $("#hora").css({"transform": roth});
+
+}
+
+$(document).ready(function(){
+    setInterval(relogio, 1000);
+});
+
+</script>
+
+    <style type="text/css">
+        .relogio {
+            width: 600px;
+            height: 600px;
+            border: solid 40px #000;
+            border-radius: 50%;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #segundo{
+            width: 6px;
+            height: 250px;
+            background-color: #BC0A24;
+            margin: 50px 297px;
+            position: absolute;
+            box-shadow: 1px 1px 2px;
+            transform-origin: 3px bottom; 
+        }
+
+        #minuto{
+            width:  16px;
+            height: 250px;
+            background-color: #000;
+            margin: 50px 292px;
+            position: absolute;
+            box-shadow: 1px 1px 2px;
+            border-radius:  10px;
+            transform-origin: 8px bottom;
+        }
+        
+        #hora{
+            width:  16px;
+            height: 200px;
+            background-color: #000;
+            margin: 105px 292px;
+            position: absolute;
+            box-shadow: 1px 1px 2px;
+            border-radius:  10px;
+            transform-origin: 8px bottom;
+        }
+
+        #centro{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 285px 285px;
+            background-color: #000;
+            position: absolute;
+            box-shadow: 1px 1px 5px;
+        }
+
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="relogio">
+        <div id="segundo"></div>
+        <div id="minuto"></div>
+        <div id="hora"></div>
+        <div id="centro"></div>
+    </div>
+</body>
+
+</html>
